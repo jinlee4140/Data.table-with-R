@@ -46,5 +46,9 @@ DT2 <- data.table(A = c(1,2,3,4,5), B = letters[1:5], C = c(6,7,8,9,10))
 DT2
 DT2[c(1,3), .(B, C)]
 
+ans <- DT[, .(B, val = A * C)]
+ans
 
+answ <- DT[, .(B, val = c(C,D))]
+answ
 
