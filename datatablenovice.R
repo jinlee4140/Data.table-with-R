@@ -46,9 +46,19 @@ DT2 <- data.table(A = c(1,2,3,4,5), B = letters[1:5], C = c(6,7,8,9,10))
 DT2
 DT2[c(1,3), .(B, C)]
 
-ans <- DT[, .(B, val = A * C)]
-ans
+#ans <- DT[, .(B, val = A * C)]
+#ans
 
-answ <- DT[, .(B, val = c(C,D))]
-answ
+#answ <- DT[, .(B, val = c(C,D))]
+#answ
 
+#The comments above do not work!!!!
+
+#If you supply a j expression and a by list of expressions, the j expression is repeated for each by group. 
+
+DT3 <- as.data.table(iris)
+DT3
+
+DT3[, .(average = mean(Sepal.Length)), by=Species]
+
+DT3[,mean(Sepal.Length),by=substr(Species, 1, 1)]
